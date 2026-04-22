@@ -156,6 +156,11 @@ function eisEnsureConsentLauncher() {
   document.body.appendChild(button);
 
   button.addEventListener("click", function () {
+    if (document.querySelector("[data-cookie-banner]")) {
+      eisCloseBanner();
+      return;
+    }
+
     eisOpenBanner();
   });
 }
@@ -184,10 +189,4 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!preferences) {
     eisOpenBanner();
   }
-
-  document.querySelectorAll("[data-open-cookie-settings]").forEach(function (button) {
-    button.addEventListener("click", function () {
-      eisOpenBanner();
-    });
-  });
 });
