@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/site.js"></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="site-shell">
       <header class="site-header">
@@ -46,9 +46,9 @@
       </header>
 
       <main id="main">
-        <section class="hero">
-          <div class="container hero__grid">
-            <div class="hero__copy">
+        <section class="hero hero--home">
+          <div class="container hero__grid hero__grid--home">
+            <div class="hero__copy hero__copy--home">
               <span class="eyebrow">Inspection support with clear communication</span>
               <h1>Non-Destructive Testing and Welding Consultancy Across the UK</h1>
               <p>
@@ -60,16 +60,30 @@
                 <a class="button button--primary" href="contact.html">Request an enquiry</a>
                 <a class="button button--secondary" href="services.html">View services</a>
               </div>
+              <div class="hero__specs" aria-label="Key homepage service points">
+                <div class="hero__spec">
+                  <strong>Coverage</strong>
+                  <span>UK and Europe</span>
+                </div>
+                <div class="hero__spec">
+                  <strong>Standards</strong>
+                  <span>British, ASME, MOD aware</span>
+                </div>
+                <div class="hero__spec">
+                  <strong>Response</strong>
+                  <span>Fast, practical communication</span>
+                </div>
+              </div>
             </div>
-            <div class="hero__visual">
-              <figure class="hero__image-large">
+            <div class="hero__visual hero__visual--home">
+              <figure class="hero__image-large hero__image-large--home">
                 <img src="assets/images/project-1.jpg" alt="Large structural glazing project with engineers working across a steel and glass roof structure.">
                 <figcaption class="hero__image-caption">
-                  <strong>Existing EIS project imagery</strong>
-                  <span>Used here to make the draft feel rooted in real inspection work</span>
+                  <strong>Field-facing inspection support</strong>
+                  <span>Project environments where clarity, compliance, and practical judgement matter</span>
                 </figcaption>
               </figure>
-              <aside class="hero__panel" aria-label="Reasons to choose EIS">
+              <aside class="hero__panel hero__panel--home" aria-label="Reasons to choose EIS">
                 <h2>Why teams contact EIS</h2>
                 <ul class="list-check">
                   <li>Nationwide UK coverage and support across Europe.</li>
@@ -83,9 +97,9 @@
           </div>
         </section>
 
-        <section class="section">
+        <section class="section section--home-metrics">
           <div class="container">
-            <div class="stats-grid" aria-label="Key service qualities">
+            <div class="stats-grid stats-grid--home" aria-label="Key service qualities">
               <div class="stat">
                 <strong>Coverage</strong>
                 <span>North Staffordshire base with support throughout the UK and Europe.</span>
@@ -106,7 +120,7 @@
           </div>
         </section>
 
-        <section class="section">
+        <section class="section section--home-process">
           <div class="container">
             <div class="section__head">
               <span class="eyebrow">Recommended page structure</span>
@@ -116,18 +130,18 @@
                 those same themes, but presents them with a stronger page structure and more confidence.
               </p>
             </div>
-            <div class="cards">
-              <article class="card">
+            <div class="cards cards--process">
+              <article class="card card--process">
                 <div class="card__kicker">Step 1</div>
                 <h3>Explain the offer fast</h3>
                 <p>Lead with non-destructive testing, material analysis, and welding consultancy in the same plain language already used on the live site.</p>
               </article>
-              <article class="card">
+              <article class="card card--process">
                 <div class="card__kicker">Step 2</div>
                 <h3>Show trust signals</h3>
                 <p>Bring standards, coverage, competitive rates, and experienced engineers closer to the top of the page.</p>
               </article>
-              <article class="card">
+              <article class="card card--process">
                 <div class="card__kicker">Step 3</div>
                 <h3>Make enquiry simple</h3>
                 <p>Keep direct phone and email links visible, then support them with a form that gathers useful project detail.</p>
@@ -136,7 +150,7 @@
           </div>
         </section>
 
-        <section class="section">
+        <section class="section section--home-about">
           <div class="container">
             <div class="section__head">
               <span class="eyebrow">About EIS</span>
@@ -173,7 +187,7 @@
           </div>
         </section>
 
-        <section class="section">
+        <section class="section section--home-services">
           <div class="container">
             <div class="section__head">
               <span class="eyebrow">Core services</span>
@@ -183,23 +197,23 @@
                 is easier to scan and easier to expand later if needed.
               </p>
             </div>
-            <div class="services-grid">
-              <article class="service-block">
+            <div class="services-grid services-grid--home">
+              <article class="service-block service-block--home">
                 <span class="service-block__eyebrow">NDT services</span>
                 <h3>Industrial radiography, UT, MPI, DPI, and endoscopy</h3>
                 <p>Support across all major non-destructive testing techniques for engineering, fabrication, and inspection requirements.</p>
               </article>
-              <article class="service-block">
+              <article class="service-block service-block--home">
                 <span class="service-block__eyebrow">Material analysis</span>
                 <h3>PMI, XRF, and hardness testing</h3>
                 <p>Material verification support where traceability, specification checks, and confidence in the material are essential.</p>
               </article>
-              <article class="service-block">
+              <article class="service-block service-block--home">
                 <span class="service-block__eyebrow">Welding support</span>
                 <h3>Welder approval and welding procedures</h3>
                 <p>Practical support for projects where welder qualification and welding procedure requirements need careful handling.</p>
               </article>
-              <article class="service-block service-block--media">
+              <article class="service-block service-block--media service-block--home-media">
                 <img src="assets/images/project-2.jpg" alt="Inspection equipment being used on a machined metal component.">
                 <div class="service-block__body">
                   <span class="service-block__eyebrow">Hands-on inspection</span>
@@ -211,9 +225,9 @@
           </div>
         </section>
 
-        <section class="section">
-          <div class="container split-layout">
-            <div class="card">
+        <section class="section section--home-cta">
+          <div class="container split-layout split-layout--home-cta">
+            <div class="card card--home-audit">
               <span class="eyebrow">What improves for UX</span>
               <h2>What this draft fixes compared with the current website</h2>
               <ul class="plain-list">
