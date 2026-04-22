@@ -769,6 +769,70 @@ button.button:hover {
   border: 0;
 }
 
+.site-locked {
+  overflow: hidden;
+}
+
+.access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(9, 28, 35, 0.62);
+  backdrop-filter: blur(14px);
+}
+
+.access-gate__panel {
+  width: min(100%, 28rem);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(255, 253, 247, 0.98);
+  border: 1px solid rgba(216, 209, 196, 0.95);
+  box-shadow: 0 30px 60px rgba(24, 32, 42, 0.24);
+}
+
+.access-gate__panel h1 {
+  margin: 0.4rem 0 0.65rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: var(--brand-strong);
+}
+
+.access-gate__form {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.access-gate__label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.access-gate__input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+  padding: 0.95rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.access-gate__error {
+  margin: -0.2rem 0 0;
+  color: #9b2c2c;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 .service-block--media {
   padding: 0;
   overflow: hidden;

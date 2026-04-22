@@ -1,5 +1,85 @@
 var EIS_CONSENT_KEY = "eis_cookie_preferences_v1";
 var EIS_ANALYTICS_ID = "";
+var EIS_ACCESS_KEY = "eis_site_access_v1";
+var EIS_ALLOWED_NAMES = ["phil", "phil shaughnessey"];
+
+function eisNormaliseAccessValue(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function eisHasAccess() {
+  try {
+    return window.localStorage.getItem(EIS_ACCESS_KEY) === "granted";
+  } catch (error) {
+    return false;
+  }
+}
+
+function eisGrantAccess() {
+  try {
+    window.localStorage.setItem(EIS_ACCESS_KEY, "granted");
+  } catch (error) {
+    return;
+  }
+}
+
+function eisOpenAccessGate() {
+  if (document.querySelector("[data-access-gate]")) {
+    return;
+  }
+
+  document.body.classList.add("site-locked");
+
+  var gate = document.createElement("aside");
+  gate.className = "access-gate";
+  gate.setAttribute("data-access-gate", "true");
+  gate.setAttribute("aria-label", "Preview access");
+
+  gate.innerHTML =
+    '<div class="access-gate__panel">' +
+    '<p class="eyebrow">Draft preview</p>' +
+    "<h1>Private preview access</h1>" +
+    "<p>This draft site is only being shared directly. Enter the agreed first name to continue.</p>" +
+    '<form class="access-gate__form" data-access-form>' +
+    '<label class="access-gate__label" for="access-name">First name</label>' +
+    '<input class="access-gate__input" id="access-name" name="access-name" type="text" autocomplete="off" required>' +
+    '<p class="access-gate__error" data-access-error hidden>That name did not match. Please try again.</p>' +
+    '<button class="button button--primary" type="submit">Open preview</button>' +
+    "</form>" +
+    "</div>";
+
+  document.body.appendChild(gate);
+
+  var form = gate.querySelector("[data-access-form]");
+  var input = gate.querySelector("#access-name");
+  var error = gate.querySelector("[data-access-error]");
+
+  window.setTimeout(function () {
+    input.focus();
+  }, 50);
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var attempted = eisNormaliseAccessValue(input.value);
+    var allowed = EIS_ALLOWED_NAMES.some(function (name) {
+      return attempted === eisNormaliseAccessValue(name);
+    });
+
+    if (!allowed) {
+      error.hidden = false;
+      input.select();
+      return;
+    }
+
+    eisGrantAccess();
+    document.body.classList.remove("site-locked");
+    gate.remove();
+  });
+}
 
 function eisReadConsent() {
   try {
@@ -166,6 +246,10 @@ function eisEnsureConsentLauncher() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  if (!eisHasAccess()) {
+    eisOpenAccessGate();
+  }
+
   var navToggle = document.querySelector("[data-nav-toggle]");
   var nav = document.querySelector("[data-nav]");
 
